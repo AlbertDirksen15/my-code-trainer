@@ -1,0 +1,16 @@
+[
+    {
+      "id": 1,
+      "title": "Lesson 1",
+      "definition": "Function Definition in JavaScript",
+      "text": "function greet(name) {\n  return `Hello, ${name}!`;\n}"
+    },
+    {
+      "id": 2,
+      "title": "Lesson 2",
+      "definition": "Variable Declaration",
+      "text": "let age = 30;\nconst name = 'Alice';"
+    }
+  ]
+  
+  

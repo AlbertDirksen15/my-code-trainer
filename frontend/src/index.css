@@ -1,13 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Кастомные стили */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #212121;
+  color: #4CAF50;
+  font-family: 'Courier New', monospace;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Основной дисплей */
+.main-display {
+  width: 70%;
+  height: 50%;
+  background-color: #000;
+  border: 8px solid #4CAF50;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 16px;
+  box-shadow: inset 0 0 20px rgba(76, 175, 80, 0.4);
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Текст внутри дисплея */
+.main-display-text {
+  font-size: 24px;
+  font-family: 'Courier New', monospace;
+  color: #4CAF50;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(76, 175, 80, 0.8);
+}
+
+/* Контейнер клавиатуры */
+.keyboard {
+  margin-top: auto;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Кнопки клавиатуры */
+.keyboard-key {
+  width: 50px;
+  height: 50px;
+  margin: 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #303030; /* Темный фон по умолчанию */
+  color: #fff; /* Белый текст по умолчанию */
+  font-size: 16px;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: background-color 0.3s, border 0.3s;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* Стили при наведении */
+.keyboard-key:hover {
+  background-color: #424242;
+}
+
+/* Стили при нажатии */
+.keyboard-key:active {
+  background-color: #4CAF50;
+  color: #000;
+}
+
+/* Стиль для кнопки, которую нужно нажать следующим */
+.next-key-highlight {
+  border: 2px solid green;
+  box-shadow: 0 0 10px green;
+  background-color: #4CAF50; /* Можно изменить или убрать, если хотите только рамку */
+  color: #000; /* Чёрный текст для лучшей читаемости */
+}
+
+/* Специальный стиль для кнопки Shift при необходимости */
+.next-key-highlight-shift {
+  border: 2px solid green;
+  box-shadow: 0 0 10px green;
+  background-color: #e0ffe0; /* Светло-зелёный фон для лучшей видимости */
+  color: #000; /* Чёрный текст */
+}
+
+/* Лампа-индикатор */
+.lamp-display {
+  width: 100px;
+  height: 50px;
+  background-color: #020202;
+  border: 4px solid #4CAF50;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.lamp-indicator.lamp-active {
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.2), 60%, transparent 100%);
+}
+
+.lamp-indicator.lamp-inactive {
+  background: #000;
+}
+
+/* Текстовые стили */
+.text-display {
+  font-family: 'Courier New', monospace;
+  color: #4caf50;
+}
+
+.completed-text {
+  color: #4caf50;
+}
+
+.remaining-text {
+  color: #a5d6a7;
+}
+
+/* Курсор */
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #4CAF50;
+  margin-left: 2px;
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Оверлей при ошибке */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* Загрузчик */
+.loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.next-key-highlight {
+  border: 2px solid #4CAF50;
+  background-color: #4CAF50;
+  color: black;
 }
